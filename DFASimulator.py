@@ -8,8 +8,6 @@ class DFASimulator:
         self.DFA=DFA
         self.inputString=inputString
 
-
-    
     def processDFA(self,DFA,inputString):
         curr=inputString[0]
         currState=list(DFA.keys())[0]
@@ -17,7 +15,7 @@ class DFASimulator:
             curr=DFA[currState][char]
             oldState=currState
             currState=curr
-            #print(f'{oldState}[{char}] -> {currState}')
+            print(f'{oldState}[{char}] -> {currState}')
         if DFA[currState].get('accept')==True:
             print("String was accepted")
         else:
@@ -117,7 +115,7 @@ if __name__=='__main__':
         'h': 'q8'
     }
     }
-    inputString=randomString(3000)
+    inputString=input("Input a string:")
     print(inputString)
     dfa=DFASimulator(machine,inputString)
     dfa.processDFA(machine,inputString)
